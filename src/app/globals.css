@@ -2,26 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+button {
+    -webkit-user-select: none;  /* Chrome, Safari, Opera */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Standard syntax */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.diary-item {
+    display: flex;
+    align-items: center;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.diary-date {
+    flex: 1;
 }
+
+.diary-text {
+    flex: 3;
+}
+
+.diary-action {
+    flex: 1;
+    display: flex;
+}
+
+.edit-form {
+    display: flex;
+}
+
+form {
+    display: flex;
+    gap: 0.625em;
+}
+
+input {
+    margin-right: 0.625em;
+}
+
+.snackbar {
+    position: fixed;
+    right: 1.25em;
+    top: 1.25em;
+    padding: 0.625em;
+    color: white;
+    border-radius: 0.625em;
+    opacity: 0; /* 처음에는 스낵바를 투명하게 합니다. */
+    visibility: hidden; /* 처음에는 스낵바를 보이지 않게 합니다. */
+    transition: visibility 0s 0.5s, opacity 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        right: -12.5em;
+    }
+    to {
+        right: 1.25em;
+    }
+}
+
+.snackbar.show {
+    animation: slideIn 0.5s forwards;
+    opacity: 1;
+    visibility: visible;
+}
+
