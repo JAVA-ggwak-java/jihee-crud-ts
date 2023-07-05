@@ -73,7 +73,7 @@ export default function Home() {
         }
     };
 
-    const handleEditFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleEditFormSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
         if (editingDiaryId !== null && editDateInput && editTextInput) {
             updateDiary(editingDiaryId, editDateInput, editTextInput);
@@ -151,8 +151,8 @@ export default function Home() {
                       <div className="diary-date"><input className="py-1 px-2 border-2 border-blue-400 rounded-md" type="date" value={editDateInput} onChange={handleEditDateChange}/></div>
                       <div className="diary-text"><input className="py-1 px-2 border-2 border-blue-400 rounded-md" type="text" value={editTextInput} onChange={handleEditTextChange}/></div>
                       <div className="diary-action justify-between w-full">
-                        <button className="py-2 px-4 bg-blue-200 border-2 border-blue-300 rounded-md" type="submit" onClick={event => handleEditFormSubmit}>저장</button>
-                        <button className="py-2 px-4 bg-blue-200 border-2 border-blue-300 rounded-md" type="button" onClick={cancelEditing}>취소</button>
+                        <button className="py-1 px-2 bg-blue-200 border-2 border-blue-300 rounded-md" type="submit" onClick={handleEditFormSubmit}>저장</button>
+                        <button className="py-1 px-2 bg-blue-200 border-2 border-blue-300 rounded-md" type="button" onClick={cancelEditing}>취소</button>
                       </div>
                     </>
                 ) : (
