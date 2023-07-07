@@ -2,11 +2,11 @@
 냅다 CRUD 를 활용해보겠습니다.
 
 ## 프로젝트 진행 상황
-![Progress](https://progress-bar.dev/40/?title=Codingㅤ&width=400&color=235A96)
+![Progress](https://progress-bar.dev/60/?title=Codingㅤ&width=400&color=235A96)
 * 레퍼런스 선정
 * 레이아웃 분석
-* **구현**
-* 추가 요구사항 업데이트
+* 구현
+* **추가 요구사항 업데이트**
 * 테스트 <sub>로컬 및 네트워크 환경, 모바일 등</sub>
 * 배포
 * 멤버 간 코드리뷰 및 pr
