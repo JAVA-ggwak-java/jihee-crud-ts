@@ -1,20 +1,21 @@
 'use client' // 리액스 새 버전부터 서버 컴포넌트 도입(서버 렌더링(바로 서버 리소스 접근) 가능) 클라이언트에서 사용하는 useState, useEffect, useRef 는 불가능,
              // 따라서 현재 컴포넌트를 클라이언트 컴포넌트로 바꾼다!
 
-import Image from 'next/image'
 import './globals.css';
-import {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
+import Snackbar from './components/Snackbar';
+import Form from './components/Form';
+import List from './components/List';
 
+export interface DiaryEntry {
+    id: number;
+    date: string;
+    text: string;
+    emoji: string | null;
+}
 
-export default function Home() {
+export function Home(){
     const [diaries, setDiaries] = useState<DiaryEntry[]>([]);
-
-    interface DiaryEntry {
-        id: number;
-        date: string;
-        text: string;
-        emoji: string | null;
-    }
 
     const createDiary = (date: string, text: string): DiaryEntry => ({
         id: Date.now(),
@@ -31,7 +32,7 @@ export default function Home() {
     const today = new Date(); // YYYY-MM-DD 형식을 padStart() 로 맞추자!
     const dateToday = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 
-    const [dateInput, setDateInput] = useState(dateToday);
+    const [dateInput, setDateInput] = useState<string>(dateToday);
     const [textInput, setTextInput] = useState('');
 
     const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -43,8 +44,8 @@ export default function Home() {
     };
 
     const [editingDiaryId, setEditingDiaryId] = useState<number | null>(null);
-    const [editDateInput, setEditDateInput] = useState('');
-    const [editTextInput, setEditTextInput] = useState('');
+    const [editDateInput, setEditDateInput] = useState<string>('');
+    const [editTextInput, setEditTextInput] = useState<string>('');
 
     const handleEditDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEditDateInput(event.target.value);
@@ -76,7 +77,7 @@ export default function Home() {
         }
     };
 
-    const handleEditFormSubmit = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const handleEditFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (editingDiaryId !== null && editDateInput && editTextInput) {
             updateDiary(editingDiaryId, editDateInput, editTextInput);
@@ -110,7 +111,7 @@ export default function Home() {
         }, 2500);
     };
 
-    const [showSnackbar, setShowSnackbar] = useState<string | boolean>('');
+    const [showSnackbar, setShowSnackbar] = useState<null | boolean>(false);
     const snackbarTimeoutId = useRef<NodeJS.Timeout | null>(null);
     const [message, setMessage] = useState<string>('');
 
@@ -147,7 +148,7 @@ export default function Home() {
             }, 50);
         }
         snackbarTimeoutId.current = setTimeout(() => {
-            setShowSnackbar('');
+            setShowSnackbar(false);
         }, 2500);
     };
 
