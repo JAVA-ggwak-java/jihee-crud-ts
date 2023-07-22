@@ -1,7 +1,7 @@
 {
   "name": "jihee-crud-ts",
   "version": "0.1.0",
-  "homepage": "https://java-ggwak-java.github.io/jihee-crud-ts",
+  "homepage": "https://java-ggwak-java.github.io/jihee-crud-ts/",
   "private": true,
   "scripts": {
     "predeploy": "npm run build",
