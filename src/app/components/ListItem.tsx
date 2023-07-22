@@ -22,6 +22,7 @@ interface ListItemProps {
 
 const ListItem: React.FC<ListItemProps> = ({ diary, editingDiaryId, editDateInput, handleEditDateChange, editTextInput, handleEditTextChange, handleEditFormSubmit, cancelEditing, toggleEmojiPicker, showEmojiPickerId, handleEmojiSelect, resetEmoji, editDiary, deleteDiary, setShowEmojiPickerId }) => {
 
+    console.log("component");
     const emojiPickerRef = useRef<null | HTMLDivElement>(null);
     const emojiButtonRef = useRef<null | HTMLButtonElement>(null);
 
@@ -46,18 +47,18 @@ const ListItem: React.FC<ListItemProps> = ({ diary, editingDiaryId, editDateInpu
 
 
     return (
-        <div className="diary-item bg-transparent border-solid border-2 border-sky-300 my-4 md:m-6 py-4 px-4 rounded-2xl">
+        <div className="diary-item bg-transparent flex flex-col md:flex-row border-solid border-2 border-sky-300 my-4 md:m-6 py-4 px-4 rounded-2xl">
             {editingDiaryId === diary.id ? (
                 <form onSubmit={handleEditFormSubmit}>
                     <div className="diary-date"><input
                         className="py-2 px-2 border-2 border-blue-400 rounded-md outline-none focus:border-blue-600" type="date"
                         value={editDateInput} onChange={handleEditDateChange}/></div>
-                    <div className="diary-text"><input
+                    <div className="diary-text" onClick={() => {console.log("clicked!")}}><input
                         className="py-2 px-2 border-2 border-blue-400 rounded-md outline-none focus:border-blue-600" type="text"
-                        value={editTextInput} onChange={handleEditTextChange}/></div>
+                        value={editTextInput} onChange={handleEditTextChange} onFocus={() => {console.log("input focused!")}}/></div>
                     <div className="diary-action justify-between w-full">
                         <button className="py-1 md:py-2 px-2 md:px-4 bg-blue-200 border-2 border-blue-300 rounded-md hover:bg-blue-400 hover:border-blue-500 hover:text-white"
-                                type='submit' >저장
+                                type='submit'>저장
                         </button>
                         <button className="py-1 md:py-2 px-2 md:px-4 bg-blue-200 border-2 border-blue-300 rounded-md hover:bg-blue-400 hover:border-blue-500 hover:text-white"
                                 type="button" onClick={cancelEditing}>취소

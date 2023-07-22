@@ -1,12 +1,34 @@
+/* 전역 스타일, for index.js */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body, html {
+    height: 100%;
+}
 
 button {
     -webkit-user-select: none;  /* Chrome, Safari, Opera */
     -moz-user-select: none;     /* Firefox */
     -ms-user-select: none;      /* IE 10+ */
     user-select: none;          /* Standard syntax */
+}
+
+form {
+    display: flex;
+    gap: 0.625em;
+}
+
+input {
+    margin-right: 0.625em;
 }
 
 .diary-item {
@@ -29,41 +51,5 @@ button {
 
 .edit-form {
     display: flex;
-}
-
-form {
-    display: flex;
-    gap: 0.625em;
-}
-
-input {
-    margin-right: 0.625em;
-}
-
-.snackbar {
-    position: fixed;
-    right: 1.25em;
-    top: 1.25em;
-    padding: 0.625em;
-    color: white;
-    border-radius: 0.625em;
-    opacity: 0; /* 처음에는 스낵바를 투명하게 합니다. */
-    visibility: hidden; /* 처음에는 스낵바를 보이지 않게 합니다. */
-    transition: visibility 0s 0.5s, opacity 0.5s ease-in-out;
-}
-
-@keyframes slideIn {
-    from {
-        right: -12.5em;
-    }
-    to {
-        right: 1.25em;
-    }
-}
-
-.snackbar.show {
-    animation: slideIn 0.5s forwards;
-    opacity: 1;
-    visibility: visible;
 }
 

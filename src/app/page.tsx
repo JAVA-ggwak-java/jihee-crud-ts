@@ -14,7 +14,7 @@ export interface DiaryEntry {
     emoji: string | null;
 }
 
-export function Home(){
+export default function Home(){
     const [diaries, setDiaries] = useState<DiaryEntry[]>([]);
 
     const createDiary = (date: string, text: string): DiaryEntry => ({
@@ -134,7 +134,7 @@ export function Home(){
                 setShowSnackbar(false);
             }
             setTimeout(() => {
-                setMessage('success');  // 'success' 메시지 설정
+                setMessage('success');
                 setShowSnackbar(true);
             }, 50);
         } else {
@@ -143,7 +143,7 @@ export function Home(){
                 setShowSnackbar(false);
             }
             setTimeout(() => {
-                setMessage('error');  // 'success' 메시지 설정
+                setMessage('error');
                 setShowSnackbar(true);
             }, 50);
         }
@@ -164,7 +164,7 @@ export function Home(){
                 diary.id === id ? {...diary, emoji} : diary
             )
         );
-        setShowEmojiPickerId(null);  // close the emoji picker after selection
+        //setShowEmojiPickerId(null);  // close the emoji picker after selection
     };
 
     const resetEmoji = (id: number) => {
