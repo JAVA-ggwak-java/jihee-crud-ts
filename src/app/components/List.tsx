@@ -13,6 +13,11 @@ interface ListProps {
     cancelEditing: () => void;
     editDiary: (id: number) => void;
     deleteDiary: (id: number) => void;
+    toggleEmojiPicker: (id: number) => void;
+    showEmojiPickerId: number | null;
+    handleEmojiSelect: (emoji: string, id: number) => void;
+    resetEmoji: (id: number) => void;
+    setShowEmojiPickerId: (id: number | null) => void;
 }
 
 const List: React.FC<ListProps> = ({ diaries, editingDiaryId, editDateInput, handleEditDateChange, editTextInput, handleEditTextChange, handleEditFormSubmit, cancelEditing, editDiary, deleteDiary}) => {

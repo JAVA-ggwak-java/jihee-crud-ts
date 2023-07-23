@@ -11,6 +11,7 @@ export interface DiaryEntry {
     id: number;
     date: string;
     text: string;
+    emoji: string | null;
 }
 
 export default function Home(){
@@ -20,6 +21,7 @@ export default function Home(){
         id: Date.now(),
         date,
         text,
+        emoji: null,
     });
 
     const addDiary = (date: string, text: string) => {
@@ -150,6 +152,20 @@ export default function Home(){
         }, 2500);
     };
 
+    const [showEmojiPickerId, setShowEmojiPickerId] = useState<number | null>(null);
+
+    const toggleEmojiPicker = (id: number) => {
+        setShowEmojiPickerId(prevId => (prevId === id ? null : id));
+    };
+
+    const handleEmojiSelect = (emoji: string, id: number) => {
+        setDiaries(
+            diaries.map(diary =>
+                diary.id === id ? {...diary, emoji} : diary
+            )
+        );
+        setShowEmojiPickerId(null);  // close the emoji picker after selection
+    };
 
     const resetEmoji = (id: number) => {
         setDiaries(
@@ -172,6 +188,7 @@ export default function Home(){
                       handleTextChange={handleTextChange}
                       handleFormSubmit={handleFormSubmit}
                 />
+                {showSnackbar && <Snackbar showSnackbar={showSnackbar} message={message}/>}
             </div>
             <List
                 diaries={diaries}
@@ -184,6 +201,11 @@ export default function Home(){
                 cancelEditing={cancelEditing}
                 editDiary={editDiary}
                 deleteDiary={deleteDiary}
+                toggleEmojiPicker={toggleEmojiPicker}
+                showEmojiPickerId={showEmojiPickerId}
+                setShowEmojiPickerId={setShowEmojiPickerId}
+                handleEmojiSelect={handleEmojiSelect}
+                resetEmoji={resetEmoji}
             />
         </main>
     )
