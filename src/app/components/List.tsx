@@ -11,16 +11,11 @@ interface ListProps {
     handleEditTextChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     handleEditFormSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
     cancelEditing: () => void;
-    toggleEmojiPicker: (id: number) => void;
-    showEmojiPickerId: number | null;
-    handleEmojiSelect: (emoji: string, id: number) => void;
-    resetEmoji: (id: number) => void;
     editDiary: (id: number) => void;
     deleteDiary: (id: number) => void;
-    setShowEmojiPickerId: (id: number | null) => void;
 }
 
-const List: React.FC<ListProps> = ({ diaries, editingDiaryId, editDateInput, handleEditDateChange, editTextInput, handleEditTextChange, handleEditFormSubmit, cancelEditing, toggleEmojiPicker, showEmojiPickerId, handleEmojiSelect, resetEmoji, editDiary, deleteDiary, setShowEmojiPickerId }) => {
+const List: React.FC<ListProps> = ({ diaries, editingDiaryId, editDateInput, handleEditDateChange, editTextInput, handleEditTextChange, handleEditFormSubmit, cancelEditing, editDiary, deleteDiary}) => {
     return (
         <div className="list-section w-9/12">
             {diaries.map(diary => (
@@ -34,11 +29,6 @@ const List: React.FC<ListProps> = ({ diaries, editingDiaryId, editDateInput, han
                     handleEditTextChange={handleEditTextChange}
                     handleEditFormSubmit={handleEditFormSubmit}
                     cancelEditing={cancelEditing}
-                    toggleEmojiPicker={toggleEmojiPicker}
-                    showEmojiPickerId={showEmojiPickerId}
-                    setShowEmojiPickerId={setShowEmojiPickerId}
-                    handleEmojiSelect={handleEmojiSelect}
-                    resetEmoji={resetEmoji}
                     editDiary={editDiary}
                     deleteDiary={deleteDiary}
                 />
