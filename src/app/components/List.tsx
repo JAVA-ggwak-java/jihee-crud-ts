@@ -11,17 +11,16 @@ interface ListProps {
     handleEditTextChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     handleEditFormSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
     cancelEditing: () => void;
+    editDiary: (id: number) => void;
+    deleteDiary: (id: number) => void;
     toggleEmojiPicker: (id: number) => void;
     showEmojiPickerId: number | null;
     handleEmojiSelect: (emoji: string, id: number) => void;
     resetEmoji: (id: number) => void;
-    editDiary: (id: number) => void;
-    deleteDiary: (id: number) => void;
     setShowEmojiPickerId: (id: number | null) => void;
 }
 
-const List: React.FC<ListProps> = ({ diaries, editingDiaryId, editDateInput, handleEditDateChange, editTextInput, handleEditTextChange, handleEditFormSubmit, cancelEditing, toggleEmojiPicker, showEmojiPickerId, handleEmojiSelect, resetEmoji, editDiary, deleteDiary, setShowEmojiPickerId }) => {
-    return (
+const List: React.FC<ListProps> = ({ diaries, editingDiaryId, editDateInput, handleEditDateChange, editTextInput, handleEditTextChange, handleEditFormSubmit, cancelEditing, toggleEmojiPicker, showEmojiPickerId, handleEmojiSelect, resetEmoji, editDiary, deleteDiary, setShowEmojiPickerId }) => {    return (
         <div className="list-section w-9/12">
             {diaries.map(diary => (
                 <ListItem
@@ -34,13 +33,13 @@ const List: React.FC<ListProps> = ({ diaries, editingDiaryId, editDateInput, han
                     handleEditTextChange={handleEditTextChange}
                     handleEditFormSubmit={handleEditFormSubmit}
                     cancelEditing={cancelEditing}
-                    toggleEmojiPicker={toggleEmojiPicker}
-                    showEmojiPickerId={showEmojiPickerId}
-                    setShowEmojiPickerId={setShowEmojiPickerId}
-                    handleEmojiSelect={handleEmojiSelect}
-                    resetEmoji={resetEmoji}
                     editDiary={editDiary}
                     deleteDiary={deleteDiary}
+                    toggleEmojiPicker={toggleEmojiPicker}
+                    showEmojiPickerId={showEmojiPickerId}
+                    handleEmojiSelect={handleEmojiSelect}
+                    resetEmoji={resetEmoji}
+                    setShowEmojiPickerId={setShowEmojiPickerId}
                 />
             ))}
         </div>

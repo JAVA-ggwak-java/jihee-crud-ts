@@ -78,7 +78,7 @@ export default function Home(){
     };
 
     const handleEditFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+        event.preventDefault(); // 페이지 강제 리프레쉬 방지
         if (editingDiaryId !== null && editDateInput && editTextInput) {
             updateDiary(editingDiaryId, editDateInput, editTextInput);
         }
@@ -124,7 +124,7 @@ export default function Home(){
     }, []);
 
     const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+        event.preventDefault(); // 페이지 강제 리프레쉬 방지
         if (dateInput && textInput) {
             addDiary(dateInput, textInput);
             setDateInput(dateToday);
@@ -164,7 +164,7 @@ export default function Home(){
                 diary.id === id ? {...diary, emoji} : diary
             )
         );
-        //setShowEmojiPickerId(null);  // close the emoji picker after selection
+        setShowEmojiPickerId(null);  // close the emoji picker after selection
     };
 
     const resetEmoji = (id: number) => {
@@ -199,13 +199,13 @@ export default function Home(){
                 handleEditTextChange={handleEditTextChange}
                 handleEditFormSubmit={handleEditFormSubmit}
                 cancelEditing={cancelEditing}
+                editDiary={editDiary}
+                deleteDiary={deleteDiary}
                 toggleEmojiPicker={toggleEmojiPicker}
                 showEmojiPickerId={showEmojiPickerId}
                 setShowEmojiPickerId={setShowEmojiPickerId}
                 handleEmojiSelect={handleEmojiSelect}
                 resetEmoji={resetEmoji}
-                editDiary={editDiary}
-                deleteDiary={deleteDiary}
             />
         </main>
     )
