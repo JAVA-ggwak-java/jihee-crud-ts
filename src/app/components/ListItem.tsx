@@ -48,7 +48,7 @@ const ListItem: React.FC<ListItemProps> = ({ diary, editingDiaryId, editDateInpu
     return (
         <div className="diary-item bg-transparent flex flex-col md:flex-row border-solid border-2 border-sky-300 my-4 md:m-6 py-4 px-4 rounded-2xl">
             {editingDiaryId === diary.id ? (
-                <form onSubmit={handleEditFormSubmit}>
+                <form className="justify-between w-full" onSubmit={handleEditFormSubmit}>
                     <div className="diary-date"><input
                         className="py-2 px-2 border-2 border-blue-400 rounded-md outline-none focus:border-blue-600" type="date"
                         value={editDateInput} onChange={handleEditDateChange}/></div>
