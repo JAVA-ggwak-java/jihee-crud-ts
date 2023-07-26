@@ -6,6 +6,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import Snackbar from './components/Snackbar';
 import Form from './components/Form';
 import List from './components/List';
+import MyComponent from './components/FetchDataComponent';
 
 export interface DiaryEntry {
     id: number;
@@ -180,6 +181,7 @@ export default function Home(){
             className="App bg-blue-100 h-screen flex flex-col items-center space-y-5 overflow-auto scrollbar-hide py-10">
             <div>
                 <h1 className="text-4xl text-blue-600">오늘의 일기</h1>
+                <MyComponent />
             </div>
             <div className="input-section border-solid border-2 border-sky-400 py-4 px-8 rounded-2xl">
                 <Form dateInput={dateInput}
