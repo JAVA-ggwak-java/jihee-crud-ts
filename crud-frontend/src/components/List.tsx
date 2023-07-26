@@ -1,6 +1,6 @@
 import React from 'react';
 import ListItem from './ListItem';
-import { DiaryEntry } from '../page';
+import { DiaryEntry } from '../app/page';
 
 interface ListProps {
     diaries: DiaryEntry[];
