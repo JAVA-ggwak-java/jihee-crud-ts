@@ -6,7 +6,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import Snackbar from '@/components/Snackbar';
 import Form from '@/components/Form';
 import List from '@/components/List';
-import MyComponent from '../components/FetchDataComponent';
+import MyComponent from '@/components/FetchDataComponent';
 
 export interface DiaryEntry {
     id: number;
