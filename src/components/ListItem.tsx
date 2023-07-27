@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import EmojiPicker from './EmojiPicker';
-import { DiaryEntry } from '../page';
+import { DiaryEntry } from '@/app/page';
 
 interface ListItemProps {
     diary: DiaryEntry;
