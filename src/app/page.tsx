@@ -1,4 +1,4 @@
-'use client' // 리액스 새 버전부터 서버 컴포넌트 도입(서버 렌더링(바로 서버 리소스 접근) 가능) 클라이언트에서 사용하는 useState, useEffect, useRef 는 불가능,
+'use client' // 리액트 새 버전부터 서버 컴포넌트 도입(서버 렌더링(바로 서버 리소스 접근) 가능) 클라이언트에서 사용하는 useState, useEffect, useRef 는 불가능,
              // 따라서 현재 컴포넌트를 클라이언트 컴포넌트로 바꾼다!
 
 import './globals.css';
