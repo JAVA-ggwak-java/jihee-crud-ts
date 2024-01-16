@@ -7343,7 +7343,7 @@ const StaticGenerationAsyncStorageWrapper = {
 
 /***/ }),
 
-/***/ 7053:
+/***/ 8000:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -7718,7 +7718,7 @@ const _getpathnamefromabsolutepath = __webpack_require__(2509);
 const _proxyrequest = __webpack_require__(1320);
 const _resolvehandlererror = __webpack_require__(7714);
 const _log = /*#__PURE__*/ _interop_require_wildcard(__webpack_require__(3724));
-const _autoimplementmethods = __webpack_require__(7053);
+const _autoimplementmethods = __webpack_require__(8000);
 const _getnonstaticmethods = __webpack_require__(3383);
 const _requestcookies = __webpack_require__(8661);
 function _getRequireWildcardCache(nodeInterop) {
